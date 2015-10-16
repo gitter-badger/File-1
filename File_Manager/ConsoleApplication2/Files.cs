@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Windows.Forms;
+using System.IO;
+
 
 
 namespace ConsoleApplication2
 {
-    class Files: UltimateFilesHurricaneManagerClassLibrary.Node
+    class Files: Node
     {
-        public string Per;
-        public string NewPer;
-        public IEnumerable<int> _information()
+         public string Per;
+         public string NewPer;
+          public IEnumerable<int> _information()
         {
             //Проверка диска на доступность
           var d = new DriveInfo(Per);
@@ -36,7 +35,7 @@ namespace ConsoleApplication2
             }
 
         }
-        public override void CopyFile()
+        public override void Copy(Node nodeElement)
         {
             FileInfo fileInf = new FileInfo(Per);
             if (fileInf.Exists)
@@ -52,7 +51,7 @@ namespace ConsoleApplication2
                 }
             }
         }
-        public override void WriteBytes()
+        public override void Write(byte[] batesArr)
         {
             using (FileStream fstream = new FileStream(Per, FileMode.OpenOrCreate))
             {
@@ -63,9 +62,9 @@ namespace ConsoleApplication2
 
             }
         }
-        public override void ReplaceFile()
+        public override void Replace(string inDirectory)
         {
-            FileInfo fileInf = new FileInfo(Per);
+            var fileInf = new FileInfo(Per);
             if (fileInf.Exists)
             { // чтение из файла
                 using (FileStream fstream = File.OpenRead(Per))
@@ -74,35 +73,23 @@ namespace ConsoleApplication2
                     var array = new byte[fstream.Length];
                     // считываем данные
                     fstream.Read(array, 0, array.Length);
-                    fileInf.MoveTo(NewPer);
+                    fileInf.MoveTo(inDirectory);
                 }
-          }
+            }
         }
-        public override void RemoveFile()
+        public override void Remove()
         {
-            //Проверка на существование файла
             if (!File.Exists(Per)) return;
-            //Обрабатываем если удаление невозможно
-            try
-            {
-                File.Delete(Per);
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Защищено от записи", "Невозможно удалить файл", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            File.Delete(Per);
         }
-        public override void OpenFile()
+        public override void Open()
         {
             //Проверка на существование файла
             if (!File.Exists(Per)) return;
             //Открываем файл внешней программой
-           var p1 = new Process { StartInfo = { FileName = Per } };
-                p1.Start(); 
-            
+            var p1 = new Process { StartInfo = { FileName = Per } };
+            p1.Start(); 
         }
 
-      
-    }
+       }
 }

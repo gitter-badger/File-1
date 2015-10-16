@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace ConsoleApplication2
 {
@@ -35,35 +36,33 @@ namespace ConsoleApplication2
                         }
                         break;
                     case 2:
-                        files = new Files();
+                       /* files = new Files();
                         Console.WriteLine("Файл который необходимо скопировать");
                         files.Per = Console.ReadLine();
-                        files.WriteBytes();
+                        files.Write();
                         Console.WriteLine("Куда скопировать файл");
-                        files.NewPer = Console.ReadLine();
-                        files.CopyFile();
+                        files.Copy();*/
                         break;
                     case 3:
                         files = new Files();
                         Console.WriteLine("Файл который необходимо переместить");
                         files.Per = Console.ReadLine();
-                        files.WriteBytes();
+                       // files.Write();
                         Console.WriteLine("Куда переместить файл файл");
-                        files.NewPer = Console.ReadLine();
-                        files.ReplaceFile();
+                        files.Replace(Console.ReadLine());
                         break;
                     case 4:
                         Console.Clear();
                         Console.WriteLine("Путь к файлу");
                         files = new Files{Per = Console.ReadLine()};
-                        files.RemoveFile();
+                        files.Remove();
                         Console.WriteLine("Удалено");
                         break;
                     case 5:
                         Console.Clear();
                         Console.WriteLine("Путь к файлу");
                         files = new Files {Per = Console.ReadLine()};
-                        files.OpenFile();
+                        files.Open();
                         break;
                     case 6:
                         
