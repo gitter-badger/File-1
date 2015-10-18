@@ -17,7 +17,7 @@ namespace ConsoleApplication2
             if (d.IsReady)
             {
                 // Отображение всех файлов по пути
-                string[] path = Directory.GetFiles(Per);
+                var path = Directory.GetFiles(Per);
                 for (var i = 0; i < 1; i++)
                 {
                     foreach (var s in path)
