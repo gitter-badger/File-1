@@ -69,7 +69,11 @@ namespace ConsoleApplication2
                         aZip.Remove();
                         break;
                     case 5:
-                       
+                        Console.WriteLine("Введите путь к архиву");
+                        aZip.Path = Console.ReadLine();
+                        Console.WriteLine("Введите имя файла");
+                        aZip.NewPath = (Console.ReadLine());
+                        aZip.Open();
                         break;
                     case 6:
                         
