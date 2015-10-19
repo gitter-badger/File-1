@@ -6,6 +6,7 @@ namespace ConsoleApplication2
     {
         public string Name { get; set; }
         public string Path { get; set; }
+        public string NewPath { get; set; }
         public long Size { get; set; }
         public DateTime DateOfCreation { get; set; }
         public DateTime DateOfChange { get; set; }

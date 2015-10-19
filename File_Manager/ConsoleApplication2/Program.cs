@@ -14,55 +14,62 @@ namespace ConsoleApplication2
                     "Меню:\n1) Просмотр файлов  \n2) Копировать \n3) заменить \n4) удалить \n5) Открыть \n6) Выйти из программы\n\nВаше решение: ");
                 // ReSharper disable once AssignNullToNotNullAttribute
                 i = int.Parse(Console.ReadLine());
-                Files files ;
+                ArchiveFile aZip = new ArchiveFile();
                 switch (i)
                 {
                     case 1:
-                        Console.Clear();
-                        files = new Files();
-                        Console.Write("Введите путь");
-                        files.Per = Console.ReadLine();                
+                      Console.WriteLine("Введите путь к архиву");
+                        aZip.Path = Console.ReadLine();
                         // ReSharper disable once UnusedVariable
-                        foreach (var i1 in files._information())
+                        foreach (var i1 in aZip._archive())
                         {
-                            Console.WriteLine(files.Name);
-                            Console.WriteLine(files.Path);
-                            Console.WriteLine(files.Size);
-                            Console.WriteLine(files.DateOfChange);
-                            Console.WriteLine(files.DateOfCreation);
-                            Console.WriteLine(files.DateOfLastAccess);
-                            Console.WriteLine("___________________________________________");
-                            
+                            Console.WriteLine(aZip.Name); 
+                            Console.WriteLine(aZip.Size);
+                           Console.WriteLine(aZip.DateOfChange);
+                            Console.WriteLine("_________________");
                         }
+                      
                         break;
                     case 2:
-                       /* files = new Files();
-                        Console.WriteLine("Файл который необходимо скопировать");
-                        files.Per = Console.ReadLine();
-                        files.Write();
-                        Console.WriteLine("Куда скопировать файл");
-                        files.Copy();*/
+                        Console.WriteLine("Введите путь к архиву");
+                        aZip.Path = Console.ReadLine();
+                        Console.WriteLine("Введите путь к файлу");
+                        aZip.NewPath = Console.ReadLine();
+                       // aZip.Copy();
+                        // ReSharper disable once UnusedVariable
+                        foreach (var i1 in aZip._archive())
+                        {
+                            Console.WriteLine(aZip.Name);
+                            Console.WriteLine(aZip.Size);
+                            Console.WriteLine(aZip.DateOfChange);
+                            Console.WriteLine("_________________");
+                        }
+                      
                         break;
                     case 3:
-                        files = new Files();
-                        Console.WriteLine("Файл который необходимо переместить");
-                        files.Per = Console.ReadLine();
-                       // files.Write();
-                        Console.WriteLine("Куда переместить файл файл");
-                        files.Replace(Console.ReadLine());
+                        Console.WriteLine("Введите путь к архиву");
+                        aZip.Path = Console.ReadLine();
+                        Console.WriteLine("Введите путь к файлу");
+                        aZip.Replace(Console.ReadLine());
+                        // ReSharper disable once UnusedVariable
+                        foreach (var i1 in aZip._archive())
+                        {
+                            Console.WriteLine(aZip.Name);
+                            Console.WriteLine(aZip.Size);
+                            Console.WriteLine(aZip.DateOfChange);
+                            Console.WriteLine("_________________");
+                        }
+                      
                         break;
                     case 4:
-                        Console.Clear();
-                        Console.WriteLine("Путь к файлу");
-                        files = new Files{Per = Console.ReadLine()};
-                        files.Remove();
-                        Console.WriteLine("Удалено");
+                        Console.WriteLine("Введите путь к архиву");
+                        aZip.Path = Console.ReadLine();
+                        Console.WriteLine("Введите имя файла");
+                        aZip.NewPath = (Console.ReadLine());
+                        aZip.Remove();
                         break;
                     case 5:
-                        Console.Clear();
-                        Console.WriteLine("Путь к файлу");
-                        files = new Files {Per = Console.ReadLine()};
-                        files.Open();
+                       
                         break;
                     case 6:
                         
