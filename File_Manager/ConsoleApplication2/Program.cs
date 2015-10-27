@@ -15,68 +15,22 @@ namespace ConsoleApplication2
                 // ReSharper disable once AssignNullToNotNullAttribute
                 i = int.Parse(Console.ReadLine());
                 ArchiveFile aZip = new ArchiveFile();
+                Files fl = new Files();
                 switch (i)
                 {
                     case 1:
-                      Console.WriteLine("Введите путь к архиву");
-                        aZip.Path = Console.ReadLine();
-                        // ReSharper disable once UnusedVariable
-                        foreach (var i1 in aZip._archive())
-                        {
-                            Console.WriteLine(aZip.Name); 
-                            Console.WriteLine(aZip.Size);
-                           Console.WriteLine(aZip.DateOfChange);
-                            Console.WriteLine("_________________");
-                        }
-                      
-                        break;
+                     break;
                     case 2:
-                        Console.WriteLine("Введите путь к архиву");
-                        aZip.Path = Console.ReadLine();
-                        Console.WriteLine("Введите путь к файлу");
-                        aZip.NewPath = Console.ReadLine();
-                       // aZip.Copy();
-                        // ReSharper disable once UnusedVariable
-                        foreach (var i1 in aZip._archive())
-                        {
-                            Console.WriteLine(aZip.Name);
-                            Console.WriteLine(aZip.Size);
-                            Console.WriteLine(aZip.DateOfChange);
-                            Console.WriteLine("_________________");
-                        }
-                      
-                        break;
+                      break;
                     case 3:
-                        Console.WriteLine("Введите путь к архиву");
-                        aZip.Path = Console.ReadLine();
-                        Console.WriteLine("Введите путь к файлу");
-                        aZip.Replace(Console.ReadLine());
-                        // ReSharper disable once UnusedVariable
-                        foreach (var i1 in aZip._archive())
-                        {
-                            Console.WriteLine(aZip.Name);
-                            Console.WriteLine(aZip.Size);
-                            Console.WriteLine(aZip.DateOfChange);
-                            Console.WriteLine("_________________");
-                        }
-                      
-                        break;
+                       break;
                     case 4:
-                        Console.WriteLine("Введите путь к архиву");
-                        aZip.Path = Console.ReadLine();
-                        Console.WriteLine("Введите имя файла");
-                        aZip.NewPath = (Console.ReadLine());
-                        aZip.Remove();
-                        break;
+                       break;
                     case 5:
-                        Console.WriteLine("Введите путь к архиву");
-                        aZip.Path = Console.ReadLine();
-                        Console.WriteLine("Введите имя файла");
-                        aZip.NewPath = (Console.ReadLine());
-                        aZip.Open();
+                      aZip.Open();
+                       
                         break;
                     case 6:
-                        
                         break;
                     default:
                         Console.WriteLine("Вы что-то другое нажали...");
